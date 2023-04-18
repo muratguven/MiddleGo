@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"middle/pkg/databases"
 	"middle/pkg/utils"
 
 	"gopkg.in/ini.v1"
@@ -26,4 +27,6 @@ func main() {
 		log.Fatal("Can not load config", e)
 	}
 	fmt.Println(c.ConnectionString)
+
+	databases.ConnectDatabase()
 }
