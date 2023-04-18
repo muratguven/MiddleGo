@@ -1,16 +1,11 @@
 package models
 
-import "time"
-
 type User struct {
-	Id           string `gorm:"primaryKey"`
-	UserName     string `gorm:"index"`
-	Email        *string
-	Password     string
-	Name         string
-	LastName     string
-	CreatedDate  time.Time `gorm:"autoCreateTime"`
-	ModifiedDate time.Time `gorm:"autoUpdateTime"`
-	IsDeleted    bool
-	IsActive     bool
+	BaseEntity
+	UserName string  `gorm:"index;column:UserName;not null"`
+	Email    *string `gorm:"column:Email;not null"`
+	Password string  `gorm:"column:Password"`
+	Name     string  `gorm:"column:Name"`
+	LastName string  `gorm:"column:LastName"`
+	IsActive bool    `gorm:"column:IsActive;not null"`
 }
