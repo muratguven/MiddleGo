@@ -5,20 +5,14 @@ import (
 	"log"
 	"middle/pkg/databases"
 	"middle/pkg/utils"
-
-	"gopkg.in/ini.v1"
 )
 
+func init() {
+	fmt.Println("Application starting...")
+}
+
 func main() {
-
-	config, err := ini.Load("appdev.ini")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(config.Section("").Key("application_mode").String())
-	fmt.Println(config.Section("").Key("default_cnn").String())
-
-	fmt.Println("Advanced go project")
+	fmt.Println("Application started!")
 
 	//using Viper config (app.env file)
 
