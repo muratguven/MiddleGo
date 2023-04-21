@@ -13,7 +13,7 @@ func init() {
 
 func main() {
 	fmt.Println("Application started!")
-
+	databases.GetModels()
 	//using Viper config (app.env file)
 
 	c, e := utils.LoadConfig(".")
