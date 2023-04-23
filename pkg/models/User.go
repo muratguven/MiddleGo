@@ -1,5 +1,6 @@
 package models
 
+// It is test domain :)
 type User struct {
 	BaseEntity
 	UserName string  `gorm:"index;column:UserName;not null"`

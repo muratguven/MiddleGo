@@ -13,10 +13,10 @@ func init() {
 
 func main() {
 	fmt.Println("Application started!")
-	databases.GetModels()
+
 	//using Viper config (app.env file)
 
-	c, e := utils.LoadConfig(".")
+	c, e := utils.LoadConfig("../../")
 	if e != nil {
 		log.Fatal("Can not load config", e)
 	}
