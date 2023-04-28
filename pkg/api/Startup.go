@@ -30,12 +30,7 @@ func Run(cfg *config.Config) {
 	server := fiber.New()
 	server.Use(limiter.New(limiter.Config{Max: 100}), cors.New(cors.ConfigDefault), logger.New(logs.CustomLogger()))
 
-	handler := func(c *fiber.Ctx) error {
-		return c.SendString("Merhaba, Fiber!")
-	}
-
-	server.Get("/", handler)
-	// app.Routes(server)
-	server.Listen(app.config.Port)
+	app.Routes(server)
+	server.Listen(":" + app.config.Port)
 
 }

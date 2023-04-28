@@ -1,0 +1,9 @@
+{"ip":"127.0.0.1","authorization":"","method":"GET","path":"/","url":"/"}
+{"ip":"127.0.0.1","authorization":"","method":"GET","path":"/favicon.ico","url":"/favicon.ico"}
+{"ip":"127.0.0.1","authorization":"","method":"GET","path":"/","url":"/"}
+{"ip":"127.0.0.1","authorization":"","method":"POST","path":"/AddWorkflow","url":"/AddWorkflow"}
+{"ip":"127.0.0.1","authorization":"","method":"POST","path":"/AddWorkflow","url":"/AddWorkflow"}
+{"ip":"127.0.0.1","authorization":"","method":"POST","path":"/AddWorkflow","url":"/AddWorkflow"}
+{"ip":"127.0.0.1","authorization":"","method":"POST","path":"/AddWorkflow","url":"/AddWorkflow"}
+{"ip":"127.0.0.1","authorization":"","method":"GET","path":"/","url":"/"}
+{"ip":"127.0.0.1","authorization":"","method":"POST","path":"/api/workflow/add","url":"/api/workflow/add"}
