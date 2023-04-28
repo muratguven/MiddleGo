@@ -3,8 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
-	"middle/pkg/databases"
-	"middle/pkg/utils"
+	"middle/pkg/api"
+	"middle/pkg/config"
+	"os"
 )
 
 func init() {
@@ -16,11 +17,11 @@ func main() {
 
 	//using Viper config (app.env file)
 
-	c, e := utils.LoadConfig("../../")
-	if e != nil {
-		log.Fatal("Can not load config", e)
+	cfg, err := config.NewConfig("../../")
+	if err != nil {
+		log.Fatal("Can not load config", err)
+		os.Exit(1)
 	}
-	fmt.Println(c.ConnectionString)
+	api.Run(cfg)
 
-	databases.ConnectDatabase()
 }

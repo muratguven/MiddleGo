@@ -10,3 +10,8 @@ type User struct {
 	LastName string  `gorm:"column:LastName"`
 	IsActive bool    `gorm:"column:IsActive;not null"`
 }
+
+// override gorm table name func.
+func (User) TableName() string {
+	return "Users"
+}

@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	uuid "github.com/satori/go.uuid"
+	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
@@ -14,10 +14,11 @@ type BaseEntity struct {
 	ModifiedDate time.Time `gorm:"column:ModifiedDate;autoUpdateTime"`
 }
 
-//Hook function
+// Hook function
+
 func (baseEntity *BaseEntity) BeforeCreate(tx *gorm.DB) (err error) {
 
-	baseEntity.Id = uuid.NewV4()
+	baseEntity.Id = uuid.New()
 
 	return
 }
