@@ -1,13 +1,13 @@
 package utils
 
 import (
+	"middle/pkg/domains"
 	"middle/pkg/dtos"
-	"middle/pkg/models"
 	"time"
 )
 
-func WorkflowMapToModel(dto *dtos.WorkflowDto) *models.Workflow {
-	var model = &models.Workflow{}
+func WorkflowMapToModel(dto *dtos.WorkflowDto) *domains.Workflow {
+	var model = &domains.Workflow{}
 
 	model.Name = dto.Name
 	model.IsActive = dto.IsActive
@@ -16,7 +16,7 @@ func WorkflowMapToModel(dto *dtos.WorkflowDto) *models.Workflow {
 	return model
 }
 
-func WorkflowMapToDtoList(modelList *[]models.Workflow) *[]dtos.WorkflowDto {
+func WorkflowMapToDtoList(modelList *[]domains.Workflow) *[]dtos.WorkflowDto {
 	var dtoList []dtos.WorkflowDto
 	for _, m := range *modelList {
 		var dto = &dtos.WorkflowDto{}

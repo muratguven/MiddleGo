@@ -1,4 +1,4 @@
-package models
+package domains
 
 // It is test domain :)
 type User struct {

@@ -28,7 +28,7 @@ func Run(cfg *config.Config) {
 	// WebServer start
 
 	server := fiber.New()
-	server.Use(limiter.New(limiter.Config{Max: 100}), cors.New(cors.ConfigDefault), logger.New(logs.CustomLogger()))
+	server.Use(limiter.New(limiter.Config{Max: 100}), cors.New(cors.ConfigDefault), logger.New(logs.CustomApiLogger()))
 
 	app.Routes(server)
 	server.Listen(":" + app.config.Port)

@@ -9,7 +9,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
-type LogModel struct {
+// Api request log model for fiber web
+type LogApiModel struct {
 	Ip            string `json:"ip"`
 	Authorization string `json:"authorization"`
 	Method        string `json:"method"`
@@ -17,23 +18,25 @@ type LogModel struct {
 	Url           string `json:"url"`
 }
 
-func CustomLogger() logger.Config {
-	file, err := os.OpenFile("./appLog.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+// Customize api request logger for filelog
+func CustomApiLogger() logger.Config {
+	file, err := os.OpenFile("./apiLog.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatalf("error opening file: %v", err)
 	}
 
 	return logger.Config{
 		Output:     file,
-		Format:     getCustomLogModel(),
+		Format:     getCustomApiLogModel(),
 		TimeFormat: "2006-01-02 15:04:05",
 		TimeZone:   "Istanbul",
 	}
 
 }
 
-func getCustomLogModel() string {
-	var model = LogModel{
+// fill api log model an return using tagbuilder func.
+func getCustomApiLogModel() string {
+	var model = LogApiModel{
 		Ip:            TagBuilder(logger.TagIP),
 		Authorization: TagBuilder(logger.TagHeader + "Authorization"),
 		Method:        TagBuilder(logger.TagMethod),
@@ -49,6 +52,7 @@ func getCustomLogModel() string {
 	return string(stringLog) + "\n"
 }
 
+// Basic tag builder for api request log.
 func TagBuilder(param string) string {
 	return fmt.Sprintf("${%s}", param)
 }

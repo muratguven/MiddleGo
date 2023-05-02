@@ -1,11 +1,11 @@
 package databases
 
 import (
-	"middle/pkg/models"
+	"middle/pkg/domains"
 
 	"gorm.io/gorm"
 )
 
 func MigrateDb(db *gorm.DB) error {
-	return db.AutoMigrate(&models.User{}, &models.Workflow{})
+	return db.AutoMigrate(&domains.User{}, &domains.Workflow{})
 }
