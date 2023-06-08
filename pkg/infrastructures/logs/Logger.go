@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/rs/zerolog"
 )
 
 // Api request log model for fiber web
@@ -55,4 +56,19 @@ func getCustomApiLogModel() string {
 // Basic tag builder for api request log.
 func TagBuilder(param string) string {
 	return fmt.Sprintf("${%s}", param)
+}
+
+// file log with zero log
+func Filelogger() *zerolog.Logger {
+	file, err := os.OpenFile("App.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0664)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer file.Close()
+
+	logger := zerolog.New(file).With().Timestamp().Logger()
+
+	return &logger
 }

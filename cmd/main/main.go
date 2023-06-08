@@ -5,6 +5,7 @@ import (
 	"log"
 	"middle/pkg/api"
 	"middle/pkg/config"
+	"middle/pkg/infrastructures/logs"
 	"os"
 )
 
@@ -14,6 +15,8 @@ func init() {
 
 func main() {
 	fmt.Println("Application started!")
+
+	logs.Filelogger().Info().Msg("Test info log")
 
 	//using Viper config (app.env file)
 
